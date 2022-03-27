@@ -25,7 +25,7 @@ namespace Examen2DiegoAlvarez
             String s = System.Configuration.ConfigurationManager.ConnectionStrings["EXAMEN2DBConnectionString"].ConnectionString;
             SqlConnection conexion = new SqlConnection(s);
             conexion.Open();
-            
+            conexion.Close();
         }
     }
 }

@@ -77,7 +77,19 @@
                     <asp:BoundField DataField="TOTAL" HeaderText="TOTAL" SortExpression="TOTAL" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="Sqlfacturacion" runat="server" ConnectionString="<%$ ConnectionStrings:EXAMEN2DBConnectionString %>" SelectCommand="SELECT * FROM [FACTURACION]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="Sqlfacturacion" runat="server" ConnectionString="<%$ ConnectionStrings:EXAMEN2DBConnectionString %>" InsertCommand="insert into FACTURACION CEDULA, NOMBRE, DIRECCION, TELEFONO, MONTO, DESCUTENTO, IVA, TOTAL)
+values (@ced, @nom, @dir, @tel, @monto, @descuento, @iva, @total)" SelectCommand="SELECT * FROM [FACTURACION]">
+                <InsertParameters>
+                    <asp:Parameter Name="ced" />
+                    <asp:Parameter Name="nom" />
+                    <asp:Parameter Name="dir" />
+                    <asp:Parameter Name="tel" />
+                    <asp:ControlParameter ControlID="textMonto" Name="monto" PropertyName="Text" />
+                    <asp:ControlParameter ControlID="textDescuento" Name="descuento" PropertyName="Text" />
+                    <asp:ControlParameter ControlID="lblIVA" Name="iva" PropertyName="Text" />
+                    <asp:ControlParameter ControlID="lblTotal" Name="total" PropertyName="Text" />
+                </InsertParameters>
+            </asp:SqlDataSource>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </p>
         <p>
